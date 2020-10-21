@@ -185,7 +185,8 @@ func makeInputRaw(fd windows.Handle, mode uint32) error {
 	// Enable these modes
 	mode |= windows.ENABLE_EXTENDED_FLAGS
 	mode |= windows.ENABLE_INSERT_MODE
-	mode |= windows.ENABLE_QUICK_EDIT_MODE
+	//mode |= windows.ENABLE_QUICK_EDIT_MODE
+	mode &^= windows.ENABLE_QUICK_EDIT_MODE
 
 	if vtInputSupported {
 		mode |= windows.ENABLE_VIRTUAL_TERMINAL_INPUT
