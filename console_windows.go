@@ -186,6 +186,7 @@ func makeInputRaw(fd windows.Handle, mode uint32) error {
 	mode |= windows.ENABLE_EXTENDED_FLAGS
 	mode |= windows.ENABLE_INSERT_MODE
 	//mode |= windows.ENABLE_QUICK_EDIT_MODE
+	// 控制台属性的快速编辑模式不选中
 	mode &^= windows.ENABLE_QUICK_EDIT_MODE
 
 	if vtInputSupported {
